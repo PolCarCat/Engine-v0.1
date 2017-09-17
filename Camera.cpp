@@ -10,6 +10,6 @@ Camera::~Camera()
 }
 
 
-iPoint Camera::getWorldPosition() {
+/*iPoint Camera::getWorldPosition() {
 
-}
+}*/

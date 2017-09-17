@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
+#include "Utilities.h"
 
 void log(const char file[], int line, const char* format, ...)
 {
@@ -21,4 +22,13 @@ int clip(int value, int minimum, int maximum) {
 
 float clip(float value, int minimum, int maximum) {
 	return max(minimum, min(value, maximum));
+}
+
+void TEST() {
+	DynamicList<int> list;
+	list.push(0);
+	list.push(10);
+
+	int i = list[0];
+	int j = list[1];
 }

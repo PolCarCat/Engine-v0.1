@@ -7,7 +7,6 @@
 #include "ModuleSound.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
-#include "Moduleenemies.h"
 #include "ModuleFonts.h"
 #include "ModuleInterface.h"
 
@@ -19,12 +18,11 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures();
 	modules[3] = sound = new ModuleSound();
 	modules[4] = fade = new ModuleFadeToBlack();
-	modules[5] = enemies = new ModuleEnemies();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = collision = new ModuleCollision();
-	modules[8] = fonts = new ModuleFonts();
-	modules[9] = interfac = new ModuleInterface();
-	modules[10] = render = new ModuleRender();
+	modules[5] = particles = new ModuleParticles();
+	modules[6] = collision = new ModuleCollision();
+	modules[7] = fonts = new ModuleFonts();
+	modules[8] = interfac = new ModuleInterface();
+	modules[9] = render = new ModuleRender();
 }	
 
 Application::~Application()
@@ -35,12 +33,8 @@ Application::~Application()
 
 bool Application::Init()
 {
+	TEST();
 	bool ret = true;
-
-	// Player will be enabled on the first update of a new scene
-
-	// Disable the map that you do not start with
-	enemies->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

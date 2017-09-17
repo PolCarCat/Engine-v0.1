@@ -2,11 +2,13 @@
 #define __GLOBALS_H__
 
 #include "SDL\include\SDL_rect.h"
+#include "Utilities.h"
 
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 void log(const char file[], int line, const char* format, ...);
 int clip(int val, int minn, int maxx);
 float clip(float val, int minn, int maxx);
+void TEST();
 #define EXIT_FAILURE 1
 #define EXIT_SUCCESS 0
 
