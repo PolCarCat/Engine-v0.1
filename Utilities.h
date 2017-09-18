@@ -39,25 +39,33 @@ private:
 	}
 
 public:
-	TYPE& operator [](usint position) {
+	TYPE& operator [](const usint position) {
 		return *get(position)._pointer;
 	}
 
-	TYPE& at(usint position) {
+	TYPE& at(const usint position) {
 		return *get(position)._pointer;
 	}
 
 	void push(TYPE object) {
 		Item *current = &getLast();
-		if (current == _first && _first == nullptr) {
+		if (current == nullptr) {
 			_first = new Item;
-			_first->_pointer = &object;
+			_first->_pointer = new TYPE(object);
 		}
 		else {
 			current->_next = new Item;
-			current->_next->_pointer = &object;
+			current->_next->_pointer = new TYPE(object);
 			current->_next->_prev = current;
 		}
+		_array_length++;
+	}
+
+	TYPE& pop() {
+		Item *current = &getLast();
+		current->_prev->_next = nullptr;
+		_array_length--;
+		return current;
 	}
 
 	DynamicList() {

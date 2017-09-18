@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
+#include <vector>
 #include "Utilities.h"
 
 void log(const char file[], int line, const char* format, ...)
@@ -31,4 +32,11 @@ void TEST() {
 
 	int i = list[0];
 	int j = list[1];
+
+	std::vector<int> list2;
+	list2.push_back(0);
+	list2.push_back(10);
+
+	int k = list2[0];
+	int l = list2[1];
 }
